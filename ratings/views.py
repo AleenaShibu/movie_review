@@ -1,29 +1,48 @@
 from django.shortcuts import render
-from django.view.genereic import ListView,DetailView
-from django.views.genric.edit import CreateView,UpdateView,DeleteView
+from django.views.generic import ListView,DetailView
+from django.views.generic.edit import CreateView,UpdateView,DeleteView
 from django.urls import reverse_lazy
-from .models import Rating
+from .models import Ratings
+from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 
-class RatingListView(ListView):
-	model = Rating
+class RatingsListView(ListView):
+	model = Ratings
 	template_name = 'home.html'
+	
 
-class RatingDetailView(DetailView):
-	model = Rating
+class RatingsDetailView(DetailView):
+	model = Ratings
 	template_name = 'detailreview.html'
 
 class AddRatingView(CreateView):
-	model = Rating
+	model = Ratings
 	template_name = 'addrating.html'
-	fields = ['movie_name','release_year','director','rating']
+	fields = ['movie_name','release_year','director','review','rating']
 
-class UpdateRatingView(UpdateView):
-	model = Rating
+	def form_valid(self, form):
+		form.instance.author = self.request.user
+		return super().form_valid(form)
+						
+
+class UpdateRatingView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
+	model = Ratings
 	template_name = 'update.html'
-	fields = ['movie_name','release_year','director','rating']
+	fields = ['movie_name','release_year','director','rating','review']
 
-class DeleteRatingView(DeleteView):
-	model = Rating
+	def test_func(self):
+		obj = self.get_object()
+		return obj.author == self.request.user
+
+
+class DeleteRatingView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
+	model = Ratings
 	template_name = 'delete.html'
 	success_url = reverse_lazy('home')
+	login_url = 'login'
+
+	def test_func(self):
+		obj = self.get_object()
+		return obj.author == self.request.user
+
+
 

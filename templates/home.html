@@ -4,17 +4,22 @@
 
 	{% block title %}Movie{% endblock title %}
  	{% block body %}
- 	<h1>Movies List</h1>
- 	<ol>
- 		{% for element in ratinglist %}
- 	{% if user.is_authenticated %}
-  <h1 class="text-center"> Hi {{ user.username }}!
-  	<div>
+    {% if user.is_authenticated %}
+  <h1 class="text-center"> Hi {{ user.username }}</h1>
+    <div class>
   <p><a href="{% url 'logout' %}">Log Out</a></p>
   </div>
+ 	<h1>Movies List</h1>
+ 	{% for element in object_list %}
+ 	   <h2> class ={{ element.movie_name }}</h2>
+ 	   <h3>{{ element.release_year }}</h3>
+ 	   <h4>{{ element.director }}</h4>
+ 	   <h5>{{ element.rating }}</h5>
+     {% endfor %}
   {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">Log In</a> 
   <a href="{% url 'signup' %}">Sign Up</a>
 {% endif %}
+
 {% endblock body %}

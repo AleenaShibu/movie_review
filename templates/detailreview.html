@@ -1,15 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} {{rating.movie_name }} 
+{% block title %} {{ratings.movie_name }} 
 {% endblock title %}
 
 	{% block body %}
+	<div class ="card">
+		<div class ="card-body">
 
-	<h1> {{ rating.movie_name }} </h1>
-	<h2> {{ rating.release_year }} </h2>
-	<h3> {{ rating.director }}</h3>
-	<h4> {{rating.ratings }}</h4>
-	<p> {{ rating.review }} </p>
+	<h1> {{ ratings.movie_name }} </h1>
+	<h2> {{ ratings.release_year }} </h2>
+	<h3> {{ ratings.director }}</h3>
+	<h4> {{ ratings.ratings }}</h4>
+	<p> {{ ratings.review }} </p>
+</div>
+
+</div>
+<a href ="{% url 'update' ratings.id %}">Update Review </a>
+
+<a href ="{% url 'delete' ratings.id %}">Delete Review</a>
+
 	
     {% endblock body %}
    

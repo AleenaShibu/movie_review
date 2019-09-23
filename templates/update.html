@@ -2,8 +2,11 @@
 {% load crispy_forms_tags %}
 {% block title %}UpdateReview{% endblock title %}
 {% block body %}
+<div class ="card-body">
+	<h1>Update Review</h1>
 <form action="" method ="post">{% csrf_token %}
-{{ form.as_p }}
+{{ form|crispy }}
 <button class="btn btn-success" type="submit">Update</button>
 </form>
+</div>
 {% endblock body %}
