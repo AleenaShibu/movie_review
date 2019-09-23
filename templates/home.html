@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+ {% load static %}
+	
+
+	{% block title %}Movie{% endblock title %}
+ 	{% block body %}
+ 	<h1>Movies List</h1>
+ 	<ol>
+ 		{% for element in ratinglist %}
+ 	{% if user.is_authenticated %}
+  <h1 class="text-center"> Hi {{ user.username }}!
+  	<div>
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+  </div>
+  {% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a> 
+  <a href="{% url 'signup' %}">Sign Up</a>
+{% endif %}
+{% endblock body %}

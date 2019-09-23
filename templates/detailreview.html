@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {{rating.movie_name }} 
+{% endblock title %}
+
+	{% block body %}
+
+	<h1> {{ rating.movie_name }} </h1>
+	<h2> {{ rating.release_year }} </h2>
+	<h3> {{ rating.director }}</h3>
+	<h4> {{rating.ratings }}</h4>
+	<p> {{ rating.review }} </p>
+	
+    {% endblock body %}
+   
