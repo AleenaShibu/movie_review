@@ -19,6 +19,7 @@ class Ratings(models.Model):
 		on_delete=models.CASCADE,)
 	#ratings = GenericRelation(get_star_ratings_rating_model_name()
 	rating = models.CharField(max_length=5, choices=rating, default='1')
+	poster = models.ImageField(upload_to='poster/', blank =True)
 
 	def __str__(self):
 		return self.movie_name[ :50]

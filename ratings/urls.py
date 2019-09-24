@@ -4,7 +4,7 @@ from .views import RatingsDetailView,AddRatingView,UpdateRatingView,DeleteRating
 
 
 urlpatterns = [
-    path('',RatingsListView.as_view(),name = 'lists'),
+    path('',RatingsListView.as_view(),name = 'home'),
     path('detail/<int:pk>/',RatingsDetailView.as_view(),name = 'detail'),
     path('addreview/',AddRatingView.as_view(),name = 'addreview'),
     path('update/<int:pk>/',UpdateRatingView.as_view(),name ='update'),

@@ -1,16 +1,12 @@
 
-body {
-
-	
+body {	
 	background: linear-gradient(to right, #43c6ac, #f8ffae); 
 	height: 100%;
 	margin: 0;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
-html {
-	height:100%;
-}
+
 p {
 	color: white;
 	font-size: 30px;
