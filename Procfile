@@ -1,0 +1,1 @@
+web:gunicorn movie_reveiw.wsgi --log-file -
