@@ -27,3 +27,4 @@ class Ratings(models.Model):
 		return reverse('detail', args=[str(self.id)])	
 
 
+

@@ -17,7 +17,7 @@ class RatingsDetailView(DetailView):
 class AddRatingView(CreateView):
 	model = Ratings
 	template_name = 'addrating.html'
-	fields = ['movie_name','release_year','director','review','rating']
+	fields = ['movie_name','release_year','director','review','rating','poster']
 
 	def form_valid(self, form):
 		form.instance.author = self.request.user
@@ -40,9 +40,18 @@ class DeleteRatingView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
 	success_url = reverse_lazy('home')
 	login_url = 'login'
 
+
+
 	def test_func(self):
 		obj = self.get_object()
 		return obj.author == self.request.user
 
+class SearchRatingView(ListView):
+	model = Ratings
+	template_name = 'searchview.html'
 
+	def get_queryset(self):
+		query = self.request.GET['q']
+		return Ratings.objects.filter(movie_name__icontains=query)
+		
 

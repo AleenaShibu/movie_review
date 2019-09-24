@@ -9,6 +9,11 @@
     <div class>
   <p><a href="{% url 'logout' %}">Log Out</a></p>
   </div>
+ <form action= "{% url 'search' %}"  method="get">
+ 
+  <input type ="text" name ="q">
+<input type ="submit" value ="search">
+</form>
  	<h1>Movies List</h1>
  	{% for element in object_list %}
  	   <h2>{{ element.movie_name }}</h2>

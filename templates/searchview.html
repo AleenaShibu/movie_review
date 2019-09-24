@@ -1,0 +1,12 @@
+
+{% extends 'base.html' %}
+{% block title %} Search {% endblock title %}
+{% block body %}
+ <h1>Movies List</h1>
+ 	{% for element in object_list %}
+ 	 <h2>{{ element.movie_name }}</h2>
+ 	   <h3>{{ element.release_year }}</h3>
+ 	   <h4>{{ element.director }}</h4>
+ 	   <h5>{{ element.rating }}</h5>
+     {% endfor %}
+     {% endblock body %}

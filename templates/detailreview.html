@@ -6,6 +6,7 @@
 	{% block body %}
 	<div class ="card">
 		<div class ="card-body">
+			
 
 	<h1> {{ ratings.movie_name }} </h1>
 	<h2> {{ ratings.release_year }} </h2>
@@ -18,7 +19,7 @@
 <a href ="{% url 'update' ratings.id %}">Update Review </a>
 
 <a href ="{% url 'delete' ratings.id %}">Delete Review</a>
-
+<img class="poster" src="{{ ratings.poster.url}}" alt="{{ ratings.movie_name }}">
 	
     {% endblock body %}
    
