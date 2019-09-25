@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     # 3rd Party
     'crispy_forms',
    
-    #Local
+    #Local_apps
     'ratings.apps.RatingsConfig',
     'users.apps.UsersConfig',
 ]
