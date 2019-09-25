@@ -14,12 +14,12 @@
   <input type ="text" name ="q">
 <input type ="submit" value ="search">
 </form>
- 	<h1>Movies List</h1>
+ 	<h2>Movies List</h2>
  	{% for element in object_list %}
- 	   <h2>{{ element.movie_name }}</h2>
- 	   <h3>{{ element.release_year }}</h3>
- 	   <h4>{{ element.director }}</h4>
- 	   <h5>{{ element.rating }}</h5>
+ 	   <h3 class="text-light">{{ element.movie_name }}</h3>
+ 	   <h4 class="text-success">{{ element.release_year }}</h4>
+ 	   <h5>{{ element.director }}</h5>
+ 	   <h6>{{ element.rating }}</h6>
      {% endfor %}
   {% else %}
   <p>You are not logged in</p>
