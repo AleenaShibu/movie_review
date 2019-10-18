@@ -8,12 +8,12 @@
 		<div class ="card-body">
 			
 
-	<h1 class ="text-primary"> {{ ratings.movie_name }} </h1>
+	<h1 class ="text-bold"> {{ ratings.movie_name }} </h1>
 	<img class= "rounded" src="{{ ratings.poster.url}}" alt="{{ ratings.movie_name }}">
 	
-	<h2 class="text-info"> {{ ratings.release_year }} </h2>
-	<h3 class="text-info"> {{ ratings.director }}</h3>
-	<h4 class="text-info"> {{ ratings.ratings }}</h4>
+	<h2 class="text-primary"> {{ ratings.release_year }} </h2>
+	<h3 class="text-warning"> {{ ratings.director }}</h3>
+	<h4 class="text-success"> {{ ratings.ratings }}</h4>
 	<h4 class="text-info"> {{ ratings.review }}</h4>
 	<p> {{ ratings.review }} </p>
 </div>
@@ -24,6 +24,7 @@
 
 <div class ="text-dark grey">
 <a href ="{% url 'delete' ratings.id %}">Delete Review</a>
+
 </div>
 
     {% endblock body %}

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     #Local_apps
     'ratings.apps.RatingsConfig',
     'users.apps.UsersConfig',
+    
 ]
 
 MIDDLEWARE = [
